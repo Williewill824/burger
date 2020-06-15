@@ -8,7 +8,6 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-//Routes
 const routes = require("./controllers/burgers_controllers");
 
 app.use(routes);

@@ -18,13 +18,12 @@ $(document).ready(function () {
         elem = $("#devoured");
         klass = "btn-danger delete-burger"
       }
-
+      
       var new_elem = "<div class='row burger-row'><div class='col-md-9 text-center'>" +
         burgers[i].id + ". " + burgers[i].burger_name + "</div><div class='col-md-3 text-center'><button type='button' class='btn " +
         klass + "' data-id='" + burgers[i].id + "'>" + text + "</button></div></div>"
 
       elem.append(new_elem)
-
     }
   })
 
@@ -40,6 +39,7 @@ $(document).ready(function () {
       data: JSON.stringify(newBurgerState),
       dataType: 'json',
       contentType: 'application/json'
+
     }).then(function () {
       $("#devoured").push("#not_devoured");
 
@@ -61,24 +61,22 @@ $(document).ready(function () {
       data: JSON.stringify(newburger),
       dataType: 'json',
       contentType: 'application/json'
+
     }).then(function () {
       console.log("created new burger");
-      // $("#devoured").push(".form-control");
+
       location.reload();
     });
   });
 
-
-  //DELETE
   $(document).on("click", ".delete-burger", function (event) {
     var id = $(this).data("id");
 
-    // Send the DELETE request.
     $.ajax("/burgers/" + id, {
       type: "DELETE"
     }).then(function () {
       console.log("deleted burger", id);
-      // Reload the page to get the updated list
+     
       location.reload();
     });
   });
