@@ -28,7 +28,6 @@ $(document).ready(function () {
     }
   })
 
-  //DEVOUR
   $(document).on("click", ".devour", function (event) {
     var id = $(this).data("id");
 
@@ -36,7 +35,6 @@ $(document).ready(function () {
       devoured: 1
     };
 
-    // Send the PUT request.
     $.ajax("/burgers/" + id, {
       type: "PUT",
       data: JSON.stringify(newBurgerState),
@@ -49,8 +47,6 @@ $(document).ready(function () {
     });
   });
 
-
-  //SUBMIT
   $(".add-burger").on("submit", function (event) {
     event.preventDefault();
 
